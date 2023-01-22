@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: "2023-01-22T11:42:06Z"
+  name: developer-rolebinding
+  namespace: development
+  resourceVersion: "2705"
+  uid: 13af0077-6517-4ec6-96f7-9d8107119cf8
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: developer-role
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: martin
