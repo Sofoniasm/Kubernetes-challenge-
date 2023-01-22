@@ -1,0 +1,3 @@
+scp kodekloud-ckad.png node01:/web/
+scp kodekloud-cka.png node01:/web/
+scp kodekloud-cks.png node01:/web/
