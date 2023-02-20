@@ -1,0 +1,35 @@
+ kubectl create ingress ingress-vh-routing --rule=watch.ecom-store.com/video=video-service:8080 --dry-run=client -o yaml > ingress-vh-routing.yaml 
+
+
+vi ingress-vh-routing.yaml
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  name: ingress-vh-routing
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: watch.ecom-store.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: video-service
+            port:
+              number: 8080
+        path: /video
+        pathType: Prefix
+  - host: apparels.ecom-store.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: apparels-service
+            port:
+              number: 8080
+        path: /wear
+        pathType: Prefix
+status:

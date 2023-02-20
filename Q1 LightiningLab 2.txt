@@ -1,0 +1,16 @@
+kubectl get pod -A
+
+kubectl edit pod -n dev1401 nginx1401
+
+Edit port should be the same as containerPort
+
+and add this command 
+
+
+livenessProbe:
+      exec:
+        command:
+        - ls
+        - /var/www/html/file_check
+      initialDelaySeconds: 10
+      periodSeconds: 60
